@@ -1,13 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.box = "precise32"
-
-    config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-
-    config.vm.network :forwarded_port, guest: 80, host: 8080
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/precise64"
+  config.vm.box_download_insecure = true
+  config.vm.network :forwarded_port, guest: 80, host: 8080
 end
